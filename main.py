@@ -5,6 +5,7 @@ a very simple smile-detector for images with use of cv2 and haarcascade
 @version:01
 '''
 import cv2
+import shutil
 
 dir = input("enter the path of the Image! : \n  ")
 
@@ -18,7 +19,6 @@ for (sx, sy, sw, sh) in smiles:
     cv2.rectangle(image, (sx, sy), ((sx + sw), (sy + sh)), (4, 120, 112), 4)
 
 cv2.imshow("Smile Detected", image)
-
 cv2.waitKey(0)
-
+cv2.imwrite("savedImage.jpg",image)
 cv2.destroyAllWindows()
